@@ -1,0 +1,32 @@
+# AutoScientist configuration
+# Mooré–French machine translation adaptation
+
+job_id: "2ed00ede-44e7-4c67-b4aa-844e55920871"
+training_experiment_id: "58863825-ab26-4cca-871a-0bf2154ac932"
+
+original_model_name: "meta-llama/Llama-3.3-70B-Instruct-Reference"
+trained_model_name: "adaption_moore_french_parallel"
+
+training_method: "sft"
+training_type: "lora"
+data_format: "chat"
+
+hyperparams:
+  lora: true
+  lora_r: 64
+  n_evals: 5
+  n_epochs: 3
+  batch_size: "max"
+  lora_alpha: 128
+  lora_dropout: 0
+  min_lr_ratio: 0.1
+  warmup_ratio: 0.05
+  weight_decay: 0.02
+  learning_rate: 0.00005
+  max_grad_norm: 1
+  base_model_size: "70B"
+  train_on_inputs: false
+  training_method: "sft"
+  lr_scheduler_type: "cosine"
+  scheduler_num_cycles: 0.5
+  lora_trainable_modules: "all-linear"
